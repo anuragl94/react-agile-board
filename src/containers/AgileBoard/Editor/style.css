@@ -1,0 +1,57 @@
+.Editor .canvas {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.Editor .main {
+  background-color: #edeff0;
+  border-radius: 2px;
+  padding: 20px;
+  width: 60%;
+  height: auto;
+}
+
+.Editor input,
+.Editor textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  display: block;
+  outline: none;
+  border: 1px solid #cacaca;
+  border-radius: 2px;
+  padding: 4px;
+  margin-bottom: 20px;
+  width: 100%;
+  resize: vertical;
+  transition: border 200ms ease-in-out;
+}
+
+.Editor input:focus,
+.Editor textarea:focus {
+  border-color: #0072c6;
+}
+
+/* Responsive part */
+.Editor .canvas {
+  text-align: center;
+  /* display: flex; */
+  /* flex-flow: row wrap; */
+  /* justify-content: center; */
+  padding-top: 40px;
+}
+
+.Editor .main {
+  display: inline-block;
+}
+
+.Editor .actions {
+  display: inline-flex;
+  width: 20%;
+  margin-left: 20px;
+  flex-direction: column;
+  vertical-align: top;
+}
