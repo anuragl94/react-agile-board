@@ -5,6 +5,7 @@
   right: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.6);
+  overflow-y: auto;
 }
 
 .Editor .main {
@@ -38,10 +39,7 @@
 /* Responsive part */
 .Editor .canvas {
   text-align: center;
-  /* display: flex; */
-  /* flex-flow: row wrap; */
-  /* justify-content: center; */
-  padding-top: 40px;
+  padding: 40px 0;
 }
 
 .Editor .main {

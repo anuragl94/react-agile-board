@@ -22,6 +22,14 @@ class Editor extends Component {
     e.stopPropagation()
     this.props.onCancel && this.props.onCancel()
   }
+  componentWillMount () {
+    // This is done to avoid duplicate scrollbar on body if the Editor is shown
+    // and both body and Editor contents are overflown
+    document.body.style.overflow = 'hidden'
+  }
+  componentWillUnmount () {
+    document.body.style.overflow = 'initial'
+  }
   render () {
     return ReactDOM.createPortal(
       <div className='Editor'>
