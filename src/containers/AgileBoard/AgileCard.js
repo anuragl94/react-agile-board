@@ -29,7 +29,7 @@ class AgileCard extends Component {
     let index = this.props.index
     let { title, content } = this.props.data
     return (
-      <div>
+      <div onClick={this.props.onOpen}>
         <Draggable draggableId={`item-${item.id}`} index={index}>
           {(provided, snapshot) => (
             <div className='AgileCard'>

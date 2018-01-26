@@ -10,14 +10,16 @@ class Editor extends Component {
     this.onSave = this.onSave.bind(this)
     this.onCancel = this.onCancel.bind(this)
   }
-  onSave () {
+  onSave (e) {
+    e.stopPropagation()
     let data = {
       title: this.state.title,
       content: this.state.content
     }
     this.props.onSave && this.props.onSave(data)
   }
-  onCancel () {
+  onCancel (e) {
+    e.stopPropagation()
     this.props.onCancel && this.props.onCancel()
   }
   render () {
