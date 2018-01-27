@@ -1,7 +1,8 @@
 {
   "name": "agile-board",
+  "homepage": "http://anuragl94.github.io/react-agile-board",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "react": "^16.2.0",
     "react-beautiful-dnd": "^4.0.1",
@@ -10,12 +11,15 @@
     "sanitize.css": "^5.0.0"
   },
   "devDependencies": {
+    "gh-pages": "^1.1.0",
     "react-scripts": "1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
