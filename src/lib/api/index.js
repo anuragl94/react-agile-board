@@ -66,4 +66,9 @@ export default class API {
   }
 }
 
-window.API = API
+function purge () {
+  window.localStorage.clear()
+  return Promise.resolve()
+}
+
+export { purge }

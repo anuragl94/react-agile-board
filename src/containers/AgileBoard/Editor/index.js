@@ -25,7 +25,7 @@ class Editor extends Component {
   }
   onDelete (e) {
     e.stopPropagation()
-    this.props.onDelete && this.props.onDelete()
+    window.confirm('Confirm deletion of this card?') && this.props.onDelete && this.props.onDelete()
   }
   componentWillMount () {
     // This is done to avoid duplicate scrollbar on body if the Editor is shown

@@ -2,13 +2,7 @@ import React, { Component } from 'react'
 import { Droppable } from 'react-beautiful-dnd'
 import AgileCard from '../AgileCard'
 
-const grid = 8
-const getListStyle = isDraggingOver => ({
-  background: isDraggingOver ? 'lightblue' : 'lightgrey',
-  padding: grid,
-  width: 250,
-  margin: 20
-})
+import './style.css'
 
 class AgileList extends Component {
   constructor (props) {
@@ -56,46 +50,52 @@ class AgileList extends Component {
   render () {
     let list = this.props.data
     return (
-      <Droppable droppableId={`list-${list.id}`}>
-        {(provided, snapshot) => (
-          <div
-            className='AgileList'
-            ref={provided.innerRef}
-            style={getListStyle(snapshot.isDraggingOver)}
-          >
-            <h4>{list.name}</h4>
-            {list.cards.map((item, index) => (
-              <AgileCard
-                key={`item-${item.id}`}
-                data={item}
-                index={index}
-                edit={this.state.editing === index}
-                onOpen={() => { this.setState({ editing: index }) }}
-                onChange={this.editCard}
-                onDelete={() => { this.removeCard(item.id) }}
-                onCancel={() => { this.setState({ editing: null }) }}
-              />
-            ))}
-            {provided.placeholder}
-            {this.state.newcard ? (
-              <AgileCard
-                data={{
-                  id: new Date().getTime(),
-                  title: '',
-                  content: ''
-                }}
-                edit={true}
-                onChange={this.addNewCard}
-                onCancel={() => { this.setState({ newcard: null }) }}
-              />
-            ) : (
-              <button onClick={() => { this.setState({ newcard: true }) }}>
-                Add new card
-              </button>
-            )}
-          </div>
-        )}
-      </Droppable>
+      <div className='AgileList'>
+        <div className='title'>
+          <h4>{list.name}</h4>
+          {!this.state.newcard ? (
+            <button className='add-button' onClick={() => { this.setState({ newcard: true }) }}>
+              <strong>+</strong>
+            </button>
+          ) : null}
+        </div>
+        <Droppable droppableId={`list-${list.id}`}>
+          {(provided, snapshot) => (
+            <div ref={provided.innerRef}>
+              {list.cards.map((item, index) => (
+                <AgileCard
+                  key={`item-${item.id}`}
+                  data={item}
+                  index={index}
+                  edit={this.state.editing === index}
+                  onOpen={() => { this.setState({ editing: index }) }}
+                  onChange={this.editCard}
+                  onDelete={() => { this.removeCard(item.id) }}
+                  onCancel={() => { this.setState({ editing: null }) }}
+                />
+              ))}
+              {!list.cards.length ? (
+                <div className='empty-message'>
+                  This list is empty!
+                  {provided.placeholder}
+                </div>
+              ) : provided.placeholder}
+              {this.state.newcard ? (
+                <AgileCard
+                  data={{
+                    id: new Date().getTime(),
+                    title: '',
+                    content: ''
+                  }}
+                  edit={true}
+                  onChange={this.addNewCard}
+                  onCancel={() => { this.setState({ newcard: null }) }}
+                />
+              ) : null}
+            </div>
+          )}
+        </Droppable>
+      </div>
     )
   }
 }

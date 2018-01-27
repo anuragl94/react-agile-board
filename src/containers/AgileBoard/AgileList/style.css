@@ -1,0 +1,40 @@
+.AgileList {
+  display: inline-block;
+  vertical-align: top;
+  background-color: #FAFBFD;
+  padding: 8px;
+  border-radius: 2px;
+  width: 250px;
+  margin-left: 20px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+  white-space: initial;
+}
+
+.AgileList .title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.AgileList:last-child {
+  margin-right: 20px;
+}
+
+.AgileList h4 {
+  margin: 0;
+}
+
+.AgileList .add-button {
+  border: 0;
+  border-radius: 2px;
+}
+
+.AgileList .empty-message {
+  padding: 10px;
+  font-size: 0.75rem;
+  color: gray;
+  margin-top: 10px;
+}
+
+.AgileList .AgileCard {
+  margin-top: 10px;
+}

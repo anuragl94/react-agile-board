@@ -6,8 +6,13 @@ html, body {
 body {
   font-size: 16px;
   box-sizing: border-box;
+  font-family: 'Open Sans', 'Arial';
 }
 
 body * {
   box-sizing: inherit;
+}
+
+button {
+  cursor: pointer;
 }

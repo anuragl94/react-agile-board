@@ -1,0 +1,54 @@
+.Home {
+  min-height: 100vh;
+  overflow-x: auto;
+}
+
+.Home header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.Home header.collapsed {
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  top: 0;
+}
+
+.Home.interactiveScreen {
+  padding-top: 80px;
+}
+
+.Home .header-actions .delete-button {
+  background-image: url(./trash.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  height: 30px;
+  width: 30px;
+  border: 0;
+}
+
+.Home.initScreen {
+  display: flex;
+  flex-direction: column;
+  padding: 100px 0;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Home .start-button {
+  margin-top: 80px;
+  padding: 10px 20px;
+  border: 0;
+  background-color: white;
+  color: #0072c6;
+}
+
+@media screen and (max-width: 550px) {
+  .Home .start-button {
+    margin: auto 0 40px 0;
+  }
+}
