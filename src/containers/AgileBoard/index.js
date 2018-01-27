@@ -3,12 +3,6 @@ import { DragDropContext } from 'react-beautiful-dnd'
 import AgileList from './AgileList'
 
 import './style.css'
- 
-// fake data generator
-const getItems = count => Array.from({ length: count }, (v, k) => k).map(k => ({
-  id: k,
-  content: `item ${k}`
-}))
 
 const reorder = (lists, source, destination) => {
   // An ideal method would deep clone the data before modifying the result to

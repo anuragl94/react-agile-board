@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Droppable } from 'react-beautiful-dnd'
-import AgileCard from './AgileCard'
+import AgileCard from '../AgileCard'
 
 const grid = 8
 const getListStyle = isDraggingOver => ({
@@ -19,6 +19,7 @@ class AgileList extends Component {
     }
     this.addNewCard = this.addNewCard.bind(this)
     this.editCard = this.editCard.bind(this)
+    this.removeCard = this.removeCard.bind(this)
   }
   addNewCard (card) {
     let data = Object.assign({}, this.props.data, {
@@ -36,6 +37,16 @@ class AgileList extends Component {
     })
     let cardIndex = data.cards.findIndex(i => i.id === card.id)
     data.cards.splice(cardIndex, 1, card)
+    this.setState({
+      editing: null
+    }, () => {
+      this.props.onChange && this.props.onChange(data)
+    })
+  }
+  removeCard (cardId) {
+    let data = Object.assign({}, this.props.data, {
+      cards: [...this.props.data.cards.filter(card => card.id !== cardId)]
+    })
     this.setState({
       editing: null
     }, () => {
@@ -61,6 +72,7 @@ class AgileList extends Component {
                 edit={this.state.editing === index}
                 onOpen={() => { this.setState({ editing: index }) }}
                 onChange={this.editCard}
+                onDelete={() => { this.removeCard(item.id) }}
                 onCancel={() => { this.setState({ editing: null }) }}
               />
             ))}

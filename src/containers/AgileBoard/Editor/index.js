@@ -9,6 +9,7 @@ class Editor extends Component {
     this.state = (({ title, content }) => ({ title, content }))(this.props)
     this.onSave = this.onSave.bind(this)
     this.onCancel = this.onCancel.bind(this)
+    this.onDelete = this.onDelete.bind(this)
   }
   onSave (e) {
     e.stopPropagation()
@@ -21,6 +22,10 @@ class Editor extends Component {
   onCancel (e) {
     e.stopPropagation()
     this.props.onCancel && this.props.onCancel()
+  }
+  onDelete (e) {
+    e.stopPropagation()
+    this.props.onDelete && this.props.onDelete()
   }
   componentWillMount () {
     // This is done to avoid duplicate scrollbar on body if the Editor is shown
@@ -50,6 +55,7 @@ class Editor extends Component {
           <div className='actions'>
             <button onClick={this.onSave}>Save</button>
             <button onClick={this.onCancel}>Cancel</button>
+            <button onClick={this.onDelete}>Delete</button>
           </div>
         </div>
       </div>,

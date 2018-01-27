@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Draggable } from 'react-beautiful-dnd'
-import Editor from './Editor'
+import Editor from '../Editor'
+
+import './style.css'
 
 const grid = 8
 const getItemStyle = (isDragging, draggableStyle) => ({
@@ -53,6 +55,7 @@ class AgileCard extends Component {
             title={title}
             content={content}
             onSave={this.onChange}
+            onDelete={this.props.onDelete}
             onCancel={this.props.onCancel}
           />     
         )}   

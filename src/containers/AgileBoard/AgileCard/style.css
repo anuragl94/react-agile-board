@@ -1,0 +1,3 @@
+.AgileCard > [data-react-beautiful-dnd-draggable] {
+  cursor: pointer;
+}
