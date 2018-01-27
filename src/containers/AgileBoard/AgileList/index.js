@@ -81,16 +81,18 @@ class AgileList extends Component {
                 </div>
               ) : provided.placeholder}
               {this.state.newcard ? (
-                <AgileCard
-                  data={{
-                    id: new Date().getTime(),
-                    title: '',
-                    content: ''
-                  }}
-                  edit={true}
-                  onChange={this.addNewCard}
-                  onCancel={() => { this.setState({ newcard: null }) }}
-                />
+                <div style={{ display: 'none' }}>
+                  <AgileCard
+                    data={{
+                      id: new Date().getTime(),
+                      title: '',
+                      content: ''
+                    }}
+                    edit={true}
+                    onChange={this.addNewCard}
+                    onCancel={() => { this.setState({ newcard: null }) }}
+                  />
+                </div>
               ) : null}
             </div>
           )}

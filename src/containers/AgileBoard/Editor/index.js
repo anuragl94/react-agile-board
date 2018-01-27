@@ -44,18 +44,25 @@ class Editor extends Component {
               autoFocus
               className='title-input'
               value={this.state.title}
+              placeholder='Title'
               onChange={e => { this.setState({ title: e.target.value }) }}
             />
-            <textarea
-              className='content-input'
-              value={this.state.content}
-              onChange={e => { this.setState({ content: e.target.value }) }}
-            />
-          </div>
-          <div className='actions'>
-            <button onClick={this.onSave}>Save</button>
-            <button onClick={this.onCancel}>Cancel</button>
-            <button onClick={this.onDelete}>Delete</button>
+            <div className='ghost-container'>
+              <pre className='ghost'>{this.state.content}</pre>
+              <textarea
+                className='content-input'
+                value={this.state.content}
+                placeholder='Content'
+                onChange={e => { this.setState({ content: e.target.value }) }}
+              />
+            </div>
+            <div className='actions'>
+              {this.props.onDelete ? (
+                <button className='delete-button' onClick={this.onDelete}>Delete</button>
+              ) : <div className='delete-button' />}
+              <button className='cancel-button' onClick={this.onCancel}>Cancel</button>
+              <button className='save-button' onClick={this.onSave}>Save</button>
+            </div>
           </div>
         </div>
       </div>,

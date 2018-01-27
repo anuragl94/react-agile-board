@@ -9,26 +9,45 @@
 }
 
 .Editor .main {
-  background-color: #edeff0;
-  border-radius: 2px;
-  padding: 20px;
-  width: 60%;
-  height: auto;
+  background-color: #ffffff;
+  padding: 20px 20px 0;
+  border-radius: 5px;
+  box-shadow: 0 0 18px rgba(27,31,35,0.4);
 }
 
 .Editor input,
-.Editor textarea {
+.Editor textarea,
+.Editor .ghost {
   font-family: inherit;
   font-size: 1rem;
   display: block;
   outline: none;
   border: 1px solid #cacaca;
   border-radius: 2px;
-  padding: 4px;
+  padding: 4px 8px;
   margin-bottom: 20px;
   width: 100%;
   resize: vertical;
   transition: border 200ms ease-in-out;
+}
+
+.Editor .ghost-container {
+  position: relative;
+}
+
+.Editor .ghost-container textarea {
+  height: 100%;
+  resize: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.Editor .ghost-container .ghost {
+  /* Auto resizing textarea with pure CSS :) */
+  opacity: 0;
+  padding-bottom: 28px;
 }
 
 .Editor input:focus,
@@ -38,18 +57,46 @@
 
 /* Responsive part */
 .Editor .canvas {
-  text-align: center;
-  padding: 40px 0;
+  padding: 80px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .Editor .main {
-  display: inline-block;
+  margin: 0 40px;
+  width: 100%;
+  max-width: 480px;
 }
 
 .Editor .actions {
-  display: inline-flex;
-  width: 20%;
-  margin-left: 20px;
-  flex-direction: column;
-  vertical-align: top;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.Editor .save-button,
+.Editor .cancel-button,
+.Editor .delete-button {
+  border: 0;
+  border-radius: 2px;
+  padding: 10px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  width: 110px;
+}
+
+.Editor .save-button {
+  background-color: #20c05c;
+  color: white;
+}
+
+.Editor .delete-button {
+  color: #ea353a;
+  padding: 0;
+  width: auto;
+}
+
+.Editor .delete-button {
+  margin-right: auto;
 }
